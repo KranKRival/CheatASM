@@ -35,11 +35,11 @@ namespace CheatASM
                 RightHandRegister = false;
                 if (BitWidth == BitWidthType.q)
                 {
-                    Value = ((UInt64)blocks[2] << 32) | blocks[3];
+                    Value = ((UInt64)blocks[1] << 32) | blocks[2];
                 }
                 else
                 {
-                    Value = blocks[2];
+                    Value = blocks[1];
                 }
             }
         }
@@ -48,7 +48,7 @@ namespace CheatASM
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(Enum.GetName(typeof(RegisterArithmeticType), MathType));
-            sb.Append(Enum.GetName(typeof(BitWidthType), BitWidth));
+            sb.Append(".").Append(Enum.GetName(typeof(BitWidthType), BitWidth));
             sb.Append(" R").Append(RegisterDest.ToString("X"));
             sb.Append(", R").Append(RegisterLeft.ToString("X"));
             if (RightHandRegister)
